@@ -478,7 +478,7 @@ with h:
         cursor.execute(
             """SELECT video.video_name, playlist.channel_name, video.view_count FROM video JOIN playlist ON video.playlist_id = playlist.playlist_id ORDER BY video.view_count DESC LIMIT 10;""")
         result = cursor.fetchall()
-        df = pd.DataFrame(result, columns=['channel_name', 'video_name', 'View count']).reset_index(drop=True)
+        df = pd.DataFrame(result, columns=['video_name', 'channel_name', 'View count']).reset_index(drop=True)
         df.index += 1
         return df
 
